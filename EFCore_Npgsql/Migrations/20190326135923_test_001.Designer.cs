@@ -10,7 +10,7 @@ using Tutorial.Database;
 namespace Tutorial.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20190325232059_test_001")]
+    [Migration("20190326135923_test_001")]
     partial class test_001
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

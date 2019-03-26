@@ -29,8 +29,7 @@ namespace Tutorial.Autorization
 
             //добавляем его в контекст данных
             Db.Instance.Add(Char);
-
-                //сохранянем изменения в базе данных
+            //сохранянем изменения в базе данных
             Db.Instance.SaveChanges();
         }
     }   

@@ -13,10 +13,13 @@ namespace Tutorial.Autorization
 
             //Получаем персонажа из бд 
             Character Char = Db.Instance.Characters.SingleOrDefault(c=>c.Social == client.SocialClubName);
-
+            //если записи соответствующей кретерию нашего запроса нет вернется Null
+            if (Char == null) return;
             //проверяем пароль на совпадение (не забываем про хеш)
-            if(Char.Password == pwd)
+            if (Char.Password == pwd)
             {
+                //подгружаем зависимые классы вынексеные в отдельную таблицу
+                Db.Instance.Entry(Char).Reference(c => c.State).Load();
                 //создаем ссылку на нашу модель игрока
                 client.SetData("Character", Char);
                 //загружаем игрока
